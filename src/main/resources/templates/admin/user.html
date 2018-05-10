@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>Admin Page</title>
+	<link rel="stylesheet" type="text/css" th:href="@{/css/home.css}" />
+	<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" >
+
+</head>
+
+<body>
+	<div class="container">
+	
+		<form th:action="@{/logout}" method="get">
+			<button class="btn btn-md btn-danger btn-block" name="registration"
+				type="Submit">Logout</button>
+		</form>
+
+		<table border="1">
+			<thead>
+			<tr>
+				<th th:text="#{user.name}">Date Planted</th>
+				<th th:text="#{user.email}">Covered</th>
+				<th th:text="#{user.createDate}">Covered</th>
+			</tr>
+			</thead>
+			<tr  th:each="user : ${userList}">
+				<th th:text="${user.getName()}">Date Planted</th>
+				<td th:text="${user.getEmail()}">test@test.com.cn</td>
+				<td th:text="${{user.getCreateDate()}}">test@test.com.cn</td>
+			</tr>
+		</table>
+		
+	</div>
+	<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>

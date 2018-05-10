@@ -1,0 +1,4 @@
+INSERT INTO `t_role` VALUES (1,'ADMIN');
+INSERT INTO `t_role` VALUES (2,'REGISTERED');
+
+
