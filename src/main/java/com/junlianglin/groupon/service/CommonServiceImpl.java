@@ -24,7 +24,6 @@ public class CommonServiceImpl implements CommonService {
     @Override
     public List<Vendor> findAllVendor(){
         return vendorRepository.findAll();
-
     }
 
     @Override

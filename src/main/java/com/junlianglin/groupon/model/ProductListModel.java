@@ -6,7 +6,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ProductListModel extends AbstractModel {
-    private List<ProductDetailModel> productDetailModelList = new ArrayList<ProductDetailModel>();
+    private List<ProductDetailModel> productDetailModelList;
+    public ProductListModel(){
+        productDetailModelList = new ArrayList<ProductDetailModel>();
+    }
 
+    public List<ProductDetailModel> getProductDetailModelList() {
+        return productDetailModelList;
+    }
 
+    public void setProductDetailModelList(List<ProductDetailModel> productDetailModelList) {
+        this.productDetailModelList = productDetailModelList;
+    }
 }

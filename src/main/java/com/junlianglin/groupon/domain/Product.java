@@ -5,6 +5,7 @@ import com.junlianglin.groupon.support.AbstractEntity;
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
+import java.util.Date;
 
 @Entity
 @Table(name = "t_product")
@@ -25,6 +26,13 @@ public class Product extends AbstractEntity {
     @ManyToOne(cascade = { CascadeType.ALL })
     @JoinColumn(name="catagory_id")
     private Catagory catagory;
+
+    @ManyToOne(cascade = { CascadeType.ALL })
+    @JoinColumn(name="vendor_id")
+    private Vendor vendor;
+
+    @Column(name = "create_Date")
+    private Date createDate;
 
     public String getName() {
         return name;
@@ -56,5 +64,21 @@ public class Product extends AbstractEntity {
 
     public void setCatagory(Catagory catagory) {
         this.catagory = catagory;
+    }
+
+    public Vendor getVendor() {
+        return vendor;
+    }
+
+    public void setVendor(Vendor vendor) {
+        this.vendor = vendor;
+    }
+
+    public Date getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
     }
 }
