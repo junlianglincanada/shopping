@@ -9,11 +9,11 @@ import org.springframework.scheduling.annotation.EnableAsync;
 @EnableAsync
 // entable oauth2
 //@EnableResourceServer
-public class GrouponApplication {
+public class ShoppingApplication {
 
 	public static void main(String[] args) {
 
-		SpringApplication.run(GrouponApplication.class, args);
+		SpringApplication.run(ShoppingApplication.class, args);
 
 
 	}
