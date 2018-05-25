@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository("productRepository")
 public interface ProductRepository extends AbstractRepository<Product> {
+
     /*Page<Product> findProductList(Specification<Product> spec, @PageableDefault(sort = { "createDate"}, value = 10)
             Pageable pageable);*/
 }

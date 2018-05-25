@@ -15,6 +15,6 @@ public interface ProductService extends AbstractService {
 
     void create(Product product);
 
-    //Page<Product> findProductList(int pageNumber, int pagesize);
+    Page<Product> findProductList(int pageNumber, int pagesize);
 
 }

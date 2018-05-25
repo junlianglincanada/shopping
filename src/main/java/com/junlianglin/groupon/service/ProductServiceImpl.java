@@ -37,21 +37,23 @@ public class ProductServiceImpl implements ProductService {
         productRepository.save(product);
     }
 
-    /*@Override
+    @Override
     public Page<Product> findProductList(int pageNumber, int pagesize) {
         Specification<Product> specification = new Specification<Product>(){
 
             @Override
             public Predicate toPredicate(Root<Product> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder criteriaBuilder) {
                 List<Predicate> predicates = new ArrayList<>();
-                //if(!StringUtils.isEmpty(abbName)){
-                Predicate likeNickName = criteriaBuilder.like(root.get("abbName").as(String.class),"%name%");
-                predicates.add(likeNickName);
-                //}
+                if(false){
+                    Predicate likeNickName = criteriaBuilder.like(root.get("abbName").as(String.class),"%name%");
+                    predicates.add(likeNickName);
+                }
                 return criteriaBuilder.and(predicates.toArray(new Predicate[0]));
             }
         };
         Sort sort = new Sort(Sort.Direction.DESC, "id");
-        return this.productRepository.findProductList(specification, PageRequest.of(0, 5, sort));
-    }*/
+        //Sort sort = new Sort(new Sort.Order(Direction.ASC, "lastName"));
+        //PageRequest.of(0, 5, sort);
+        return this.productRepository.findAll(PageRequest.of(0, 5, sort));
+    }
 }

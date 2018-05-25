@@ -7,6 +7,8 @@ import com.junlianglin.groupon.service.OrderService;
 import com.junlianglin.groupon.service.ProductService;
 import com.junlianglin.groupon.support.AbstractController;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationEventPublisher;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,13 +24,17 @@ public class ProductController extends AbstractController {
     @Autowired
     private ProductService productService;
 
+    @Autowired
+    private ApplicationEventPublisher eventPublisher;
+
 
     @RequestMapping(value="/list", method = RequestMethod.GET)
     public ModelAndView list(){
         ModelAndView modelAndView = new ModelAndView();
         try{
-            List<Product> productList = productService.findAll();
-            modelAndView.addObject("productList",productList);
+            Page<Product> productList = productService.findProductList(1,5);
+            modelAndView.addObject("productList",productList.getContent());
+            //modelAndView.addObject("fistPage",productList.)
         }
         catch (Exception ex){
             ex.printStackTrace();
